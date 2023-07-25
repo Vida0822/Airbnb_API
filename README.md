@@ -180,6 +180,7 @@ pl/sql이란?
 <details>
 <summary><b> 요구사항문서 펼치기</b></summary>
 <div markdown="1">
+<img width="625" alt="요구분석1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4199f32d-01ff-44a1-b1ad-e42fc912dd7c">	
 ![요구사항분석1](D:\Programming\images\README\요구사항분석1.png)
 ![image-20230724074117825](D:\Programming\images\README\image-20230724074117825.png)
 
