@@ -8,14 +8,13 @@
 
 1. 제작기간 & 참여 인원  <br>
 2. 사용 기술  <br>
-3. 프로젝트 설명 <br>
+3. 프로젝트 개요<br>
 4. 개발단계 및 일정  <br>
 5. 요구분석 : Use-case Diagram 설계  
-6. 개념적 모델링 : ERD 설계    <br>
-7. 논리적/물리적 모델링 : EXERD 설계  <br>
+6. DB 모델링 : ERD / EXERD 설계    <br>
 8. 핵심기능 코딩 <br>
 9. 트러블 슈팅  <br>
-10. 발표 영상 (발표자: 본인) 
+10. 발표영상 (본인 발표) 
 11. 프로젝트 회고 <br>
 
 </br></br>
@@ -32,18 +31,20 @@
 
 ## 2. 사용 기술  
 
-- PLSQL <br>
+- PL/SQL <br>
 - 툴 : Oracle Database 19c (sql plus) / SQL Developer    <br>
 
 </br>
 
 
 
-## 3. 프로젝트 소개 
+## 3. 프로젝트 개요
 
-​	이 프로젝트는 데이터베이스 기반 프로그래밍으로 구현한 sql 프로젝트이다. 프론트앤드와 백앤드 기술 없이, 즉 화면 구현 및 서버 베이스 코딩을 하지 않고 특정 기능을 실행했을 때 발생하는 db의 변화,  즉 데이터베이스 쿼리만 실행하고 결과를 확인한다. 세계 최대의 숙박 공유 서비스, 'airbnb'의 웹사이트를 주제로 선정하였으며 파악한 요구분석을 바탕으로 데이터베이스 설계를 진행한 후 해당 기능에 해당하는 프로젝트의 쿼리를 작성했다. 프로젝트 쿼리는 Oracle pl/sql의 procedure로만 작성되었다.
+​	이 프로젝트는 데이터베이스 기반 프로그래밍으로 구현한 sql 프로젝트이다. 프론트앤드와 백앤드 기술 없이, 즉 화면 구현 및 서버 코딩을 하지 않고 특정 기능을 실행했을 때 발생하는 db의 변화(쿼리 실행결과)만 확인한다. 세계 최대의 숙박 공유 서비스, 'airbnb'의 웹 사이트를 주제로 선정하였으며 요구분석을 바탕으로 DB를 설계한 후 해당 기능을 수행하는 쿼리를 작성했다. 프로젝트 쿼리는 Oracle의 pl/sql(procedure)로만 작성되었다.
 
 </br>
+
+pl/sql이란? 
 
 
 
@@ -55,12 +56,12 @@
 
 2. DB 모델링  <br>
 
-3. pl/sql 쿼리작성  <br> </br>
+3. CRUD 기능구현  <br> </br>
 
    
 
 <details>
-<summary><b> 개발단계 3 steps</b></summary>
+<summary><b> 개발단계 3 steps 상세</b></summary>
 <div markdown="1">
 
 **1st step : [요구분석]** <br>
@@ -92,41 +93,41 @@
 
    - 성능위해 인덱스 처리 <br>
 
-     ​			↓  <br>
+     ​	↓  <br>
+  
+     ...반복... <br>
 
-   1) 업무 프로세스와 일치하는지 검토<br>
 
-   2. 개념적 모델링 : 개체, 속성, 관계 재정의<br>
+​	(재)요구분석: 설계한 DB가 업무 프로세스와 일치하는지 검토<br>
 
-   3. 논리적 모델링 <br>
+​	(재)개념적 모델링 : 개체, 속성, 관계 재정의<br>
 
-       	​			(:) <br></br>
-   
+​	(재)논리적 모델링 : 컬럼 및 테이블 구조 수정<br>
+
+ 4. **DB 구축** : 테이블 생성 및 데이터 입력 <br>
+
+    * 설계한 스키마에 따라 테이블을 생성한다</br>
+
+      
 
 **3rd step : [쿼리 작성: CRUD 기능구현]** (**3팀으로 나눠서 분담작업)*  <br>
 
 : 데이터 처리 과정  (**상세한 요구분석 바탕**으로 실제로 그 작업을 쿼리로 구현)  <br>
 
-1. **테이블 생성** : 설계한 스키마에 따라 테이블을 생성한다 - **CREATE TABLE**  <br>
+* **데이터 조회** : 프로세스상 중요한 필수 표시 페이지를 구현, 데이터를 조회한다 - **SELECT** <br>
 
-2.  **데이터 조회** : 프로세스상 중요한 필수 표시 페이지를 구현, 데이터를 조회한다 - **SELECT** <br>
+* **데이터 입력** : 각 스키마에 맞는 데이터를 입력하여 테이블을 채운다 -**INSERT** <br>
 
-   => 조회할 페이지 정하기!  <br>
+* **데이터 수정** : 변경사항을 반영하는 기능을 구현한다 - **UPDATE**  <br>
 
-3. **데이터 입력** : 각 스키마에 맞는 데이터를 입력하여 테이블을 채운다 -**INSERT** <br>
+* **데이터 삭제** : 등록한 데이터들을 다시 삭제하는 기능을 구현한다 - **DELETE** <br>
 
-   => 엑셀로 임포트할 부분과 기능으로 insert할 부분 정하기  <br>
+* **권한 처리** : 각 사용자에 따라 권한(사용가능한 기능)을 설정해 부여한다 - **기능 구현 후 권한설정코딩 추가**<br>
 
-4. **데이터 수정** : 변경사항을 반영하는 기능을 구현한다 - **UPDATE**  <br>
+</div>
+</details>
 
-5. **데이터, 칼럼 삭제** : 등록한 데이터들을 다시 삭제하는 기능을 구현한다 - **DELETE** <br>
-
-6. **권한** : 각 사용자에 따라 권한(역할과 책임)을 설정해 부여한다 (각 권한 따라 사용가능한 기능 달라짐) <br>=> 기능 다 구현후 액터별 권한설정코딩 반영 <br>
-
-   </div>
-   </details>
-
-   </br>
+</br>
 
 <details>
 <summary><b> 개발일정 펼치기</b></summary>
@@ -146,7 +147,7 @@
 
 **04/04 (화)** 물리적 DB 모델링 (eXERD 작성) 
 
-**04/05 (수)** 테이블 생성&데이터 엑셀로 정리 후 임포트  +  구현할 페이지와 기능정리 & 쿼리 역할분담 
+**04/05 (수)** DB 구축 (테이블 생성&데이터 엑셀로 정리 후 임포트)  +  구현할 페이지와 기능정리 & 쿼리 역할분담 
 
 -------------*DB 모델링* ----------------------
 
@@ -169,7 +170,25 @@
 
 </br>
 
-## 4. 요구분석 : Use-case Diagram 설계 
+## 5. 요구분석 : Use-case Diagram 설계 
+
+​	다같이 사이트를 분석한 후, 우리는 
+
+1) 텍스트 기반의 요구사항 문서와 
+2) 사용자 관점에서 시스템의 입출력만을 생각해 분석하는 블랙박스 분석을 기초로 사용자와 시스템 사이의 상호작용을 보여주는 유스케이스 다이어그램을 설계하였다. 
+
+<details>
+<summary><b> 요구사항문서 펼치기</b></summary>
+<div markdown="1">
+![요구사항분석1](D:\Programming\images\README\요구사항분석1.png)
+![image-20230724074117825](D:\Programming\images\README\image-20230724074117825.png)
+
+![요구분석2](D:\Programming\images\README\요구분석2.png)
+
+</div>
+</details>
+
+</br>
 
 1. 유스케이스 다이어그램이란? 
 
@@ -208,9 +227,16 @@
 </br>
 
 
-## 5. ERD 설계 (개념적 모델링)
+## 6. DB 모델링 : ERD / EXERD 설계
 
-​	위와 같은 요구분석을 바탕으로, 우리는 개체 및 속성을 추출한후 개체간의 관계를 정의하는 개념적 모델링을 통해 erd를 설계했다. 개체와 속성을 필기?로 정리할 땐 테이블간 관계를 명확히 파악하기 위해 편의상 기본키 및 외래키를 PK,FK로 표시하며 모두 작성해주었고 erd는 설계 규칙에 따라 외래키를 생략하고 PK대신 밑줄로 기본키임을 나타냈다. 
+
+
+<details>
+<summary><b> 모델링 펼치기 </b></summary>
+<div markdown="1">
+
+
+### 5.1. 개체 및 속성 정리 
 
 <details>
 <summary><b>개체 및 속성 펼치기</b></summary>
@@ -229,13 +255,20 @@
 
 
 
+### 5.2. 개념적 모델링 : ERD 설계  
+
+​	위와 같은 요구분석을 바탕으로, 우리는 개체 및 속성을 추출한후 개체간의 관계를 정의하는 개념적 모델링을 통해 erd를 설계했다. 개체와 속성을 필기?로 정리할 땐 테이블간 관계를 명확히 파악하기 위해 편의상 기본키 및 외래키를 PK,FK로 표시하며 모두 작성해주었고 erd는 설계 규칙에 따라 외래키를 생략하고 PK대신 밑줄로 기본키임을 나타냈다. 
+
 ![에어비앤비_DB모델링_개념적모델링(erd)](D:\Programming\images\README\에어비앤비_DB모델링_개념적모델링(erd).png)
 
 
 
 
 
-## 6. EXERD 설계 (물리적, 논리적 모델링)
+
+
+
+### 5.3. 물리적, 논리적 모델링 : eXERD 설계  
 
 ​	개념적 모델링을 마친 후 설계한 ERD를 1:1로 매칭시키는 매핑규칙(mapping rule)에 따라 DBMS가 지원하는 스키마로 설계하는 정규화 과정(논리적 모델링)과 세부적인 칼럼의 종류 및 자료형과 크기를 확정하고 효율적인 데이터베이스가 되도록 역정규화하는 물리적 모델링을 진행했다. <br>
 
@@ -247,13 +280,186 @@
 
 ​	
 
+
+
+
+
+
+### 5.4. DB 구축 : 테이블 생성 , 데이터 임포트 
+
+1. 테이블 생성
+
+   exerd의 '포워드 엔지니어링' 기능을 활용해 바로 sql developer상의 계정 어쩌구에 쉽게 db를 설계해주었다
+
+2. 데이터 임포트  
+
 ​	설계한 eXERD에 따라 실제 사이트를 바탕으로 테이블에 넣어줄 데이터들을 엑셀에 정리한 후 , sql developer의 '데이터 임포트' 기능을 활용해 정리한 데이터를 각 테이블에 맞춰 넣어주었다. 
 
 -> 링크 : 구글 스프레드 시트 
 
+</div>
+</details>
+
+</br>
+
+
+
+## 7. 핵심 기능
+
+
+
+
+![핵심기능](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/76f2e20b-0c59-4eeb-914e-828974d0aaac)
+
+* **고객**(Actor) : 사이트 처음 방문한 사람이 숙소를 조회하고 회원가입/ 로그인하기까지의 프로세스 <br>
+
+* **회원**(Actor): 회원으로서 가능한  회원정보관리, 탈퇴하기까지의 프로세스   <br>
+
+* **호스트**(Actor) : 호스트 계정 등록 -> 숙소를 등록하고 손님을 받을때까지 프로세스<br>
+
+* **게스트**(Actor) : 숙소를 예약하고 여행을 다녀온 후 후기까지 남기는 프로세스 <br>
+
+
+
+<details>
+<summary><b>핵심 기능 설명 펼치기</b></summary>
+<div markdown="1">
+
+
+### 7.1. 액터 : 사용자
+
+![핵심기능](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/76f2e20b-0c59-4eeb-914e-828974d0aaac)
+
+* **숙소 목록조회** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
+
+  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
+  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
+
+* **숙소 상세조회** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
+
+  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
+  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
+
+* **회원가입** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/18b9b1124a69f585853726515a4a88d02aeb7b3b/tennis/src/tennis/TennisMain.java#L30-L64)
+
+  - 실행할 경기가 남자경기, 여자경기인지 입력받는다. 남자경기는 5세트, 여자경기는 3세트로 세트수가 설정된다.   
+  - 각 플레이어의 이름을 입력받은 후 세팅정보를 바탕으로 계수기 객체를 생성한다.
+
+* **로그인** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
+
+  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
+  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
+
+  
+
+</br>
+
+### 7.2. 액터 : 회원
+
+![TennisMain](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/c1eac4bc-5e04-463a-b47c-f44d5680cfed)
+
+
+
+- **회원정보 수정** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/18b9b1124a69f585853726515a4a88d02aeb7b3b/tennis/src/tennis/TennisMain.java#L30-L64)
+  
+  - 실행할 경기가 남자경기, 여자경기인지 입력받는다. 남자경기는 5세트, 여자경기는 3세트로 세트수가 설정된다.   
+  - 각 플레이어의 이름을 입력받은 후 세팅정보를 바탕으로 계수기 객체를 생성한다.
+  
+- **회원 탈퇴** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
+
+  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
+  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
+  
+  
+
+</br>  
+
+### 7.3. 액터 : 호스트
+
+![scoreBoard](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/7410cb17-8dad-4a06-8fbb-d95e875b0611)
+
+- **숙소 등록** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L57-L82)
+
+  - 득점자의 포인트를 올리고 이를 생성한 계수기 객체의 멤버변수(각 선수 포인트, 게임, 세트수)에 경기 규칙에 따라 반영한다. 
+
+  - 포인트 4점 획득시 1게임을, 6게임 획득시 1 Set를 획득한 것으로 필드를 초기화며 게임, 세트 획득시 포인트 및 게임 필드를 리셋한다. 
+
+  - 설정된 세트수의 과반수 이상 획득 시 경기를 종료하고 승자를 결정한다. 
+
+    
+
+- **숙소 기본정보 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
+
+  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
+  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
+  
+  
+
+- **숙소 세부정보 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
+
+  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
+  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
+
+  
+
+ 
+
+</br>   
+
+
+### 7.4. 액터 : 게스트
+
+![dispScoreBoard](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/5f83dcb4-2c7b-4d38-894b-7446e2d8dae0)
+
+- **위시리스트 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L57-L82)
+  - 득점자의 포인트를 올리고 이를 생성한 계수기 객체의 멤버변수(각 선수 포인트, 게임, 세트수)에 경기 규칙에 따라 반영한다. 
+
+  - 포인트 4점 획득시 1게임을, 6게임 획득시 1 Set를 획득한 것으로 필드를 초기화며 게임, 세트 획득시 포인트 및 게임 필드를 리셋한다. 
+
+  - 설정된 세트수의 과반수 이상 획득 시 경기를 종료하고 승자를 결정한다. 
+
+
+- **예약 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
+  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
+  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
+
+- **결제 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
+
+  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
+  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
+
+- **환불 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
+
+  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
+  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
+
+- **후기 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
+
+  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
+  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
+
+  
+
+</br>  
+
+
+
+</div>
+</details>
+
+</br>
+
+## 7. 핵심 트러블 슈팅
+
+<details>
+<summary><b>트러블 슈팅 설명 펼치기</b></summary>
+<div markdown="1">
+
+
 <details>
 <summary><b>erd 트러블 슈팅 </b></summary>
 <div markdown="1">
+
 
 ### 5.1. 숙소 세부정보 설정부분 erd 설계  -> 여기 또는 트러블 슈팅 
 
@@ -296,121 +502,6 @@
 </details>
 
 </br>
-
-
-
-## 7. 핵심 기능
-
-<details>
-<summary><b>핵심 기능 설명 펼치기</b></summary>
-<div markdown="1">
-### 6.1. 전체 흐름
-
-![핵심기능](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/76f2e20b-0c59-4eeb-914e-828974d0aaac)
-
-* **TennisMain** (Class) : 테니스 경기수 , 경기할 플레이어 등 경기를 세팅해 해당 정보로 계수기 객체를 생성하고 반복문으로 득점자를 도출해 생성해준 계수기 객체에 반영하는 실제 경기 실행 클래스 <br>
-
-* **ScoreCounter** (Class): 테니스의 전반적인 규칙을 반영한 클래스. 크게 점수를 계산하는 계수기 기능과 점수를 출력하는 점수판 기능으로 이루어져 있다. <br>
-
-* **WriteResult** (Class) : 최종적인 경기결과를 파일에 출력해주는 출력기능 클래스 <br>
-
-  
-
-
-### 7.1. 액터 : 고객
-
-![핵심기능](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/76f2e20b-0c59-4eeb-914e-828974d0aaac)
-
-* **TennisMain** (Class) : 테니스 경기수 , 경기할 플레이어 등 경기를 세팅해 해당 정보로 계수기 객체를 생성하고 반복문으로 득점자를 도출해 생성해준 계수기 객체에 반영하는 실제 경기 실행 클래스 <br>
-* **ScoreCounter** (Class): 테니스의 전반적인 규칙을 반영한 클래스. 크게 점수를 계산하는 계수기 기능과 점수를 출력하는 점수판 기능으로 이루어져 있다. <br>
-* **WriteResult** (Class) : 최종적인 경기결과를 파일에 출력해주는 출력기능 클래스 <br>
-
-</br>
-
-### 7.2. 액터 : 회원
-
-![TennisMain](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/c1eac4bc-5e04-463a-b47c-f44d5680cfed)
-
-
-
-- **게임 세팅** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/18b9b1124a69f585853726515a4a88d02aeb7b3b/tennis/src/tennis/TennisMain.java#L30-L64)
-  - 실행할 경기가 남자경기, 여자경기인지 입력받는다. 남자경기는 5세트, 여자경기는 3세트로 세트수가 설정된다.   
-  - 각 플레이어의 이름을 입력받은 후 세팅정보를 바탕으로 계수기 객체를 생성한다.
-  
-- **게임 진행** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
-
-  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
-  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
-  
-
-</br>  
-
-### 7.3. 액터 : 호스트
-
-![scoreBoard](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/7410cb17-8dad-4a06-8fbb-d95e875b0611)
-
-- **득점 처리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L57-L82)
-
-  - 득점자의 포인트를 올리고 이를 생성한 계수기 객체의 멤버변수(각 선수 포인트, 게임, 세트수)에 경기 규칙에 따라 반영한다. 
-
-  - 포인트 4점 획득시 1게임을, 6게임 획득시 1 Set를 획득한 것으로 필드를 초기화며 게임, 세트 획득시 포인트 및 게임 필드를 리셋한다. 
-
-  - 설정된 세트수의 과반수 이상 획득 시 경기를 종료하고 승자를 결정한다. 
-
-    
-
-- **듀스 게임** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
-
-  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
-
-  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
-  
-
- </br>   
-
-
-### 7.4. 액터 : 게스트
-
-![dispScoreBoard](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/5f83dcb4-2c7b-4d38-894b-7446e2d8dae0)
-
-- **경기현황 출력** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L156-L171)
-
-  - 현재 점수 현황, 즉 두 선수의 포인트, 게임, 세트 획득 현황을 나타내는 점수판을 함수 호출시 출력한다.
-    
-
-- **승자정보 출력** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/7f093b13a61377db0f12217858f593e3fa904756/tennis/src/tennis/ScoreCounter.java#L173-L184)
-
-  - winner 필드가 null이 아니게 될 때 경기 종료 멘트와 함께 승자 정보를 출력한다. 
-
-  - 파일에 출력할 최종결과 텍스트를 작성한다. 이때 formating의 편의를 위해 여러 list 변수로 텍스트를 받아둔다.
-    
-  - 이렇게 작성한 텍스트를 파일 입출력을 수행하는 WriteResult 객체의 생성자를 통해 넣어준다. 
-
-  
-
-</br>  
-
-
-### 7.5. 최종결과 저장- writeTennisResult() 
-
-![WriteResult](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/afff5816-583e-42a8-a0c0-78b6d1a3e945)
-
-- **파일 출력** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/WriteResult.java#L7)
-
-  - FileOutputStream을 통해 출력할 file을 지정한다
-  - ObjectOutputStream의 writeUTF() 를 통해 tennisResult.txt에 실제로 출력한다. 
-
-</div>
-</details>
-
-</br>
-
-## 7. 핵심 트러블 슈팅
-
-<details>
-<summary><b>트러블 슈팅 설명 펼치기</b></summary>
-<div markdown="1">
-
 
 ### 7.1. 인터페이스 참조변수 활용
 
@@ -518,7 +609,6 @@ int printplayer2Point
 </details>
 
 </br>
-
 
 </div>
 </details>
