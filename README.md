@@ -1,6 +1,6 @@
-# :pushpin: Oracle의 Procedure를 활용한 Airbnb 기능구현 
+# :pushpin: Procedure를 활용한 Airbnb 기능구현 
 
-> PLSQL(Procedure)을 활용한 에어비엔비 기능 구현 (데이터베이스 기반 프로그래밍) 
+> Oracle의 PLSQL(Procedure)을 활용한 에어비엔비 기능 구현 (데이터베이스 기반 프로그래밍) 
 
 </br> 
 
