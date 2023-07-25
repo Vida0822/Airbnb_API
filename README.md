@@ -237,9 +237,9 @@ pl/sql이란?
 <details>
 <summary><b>개체 및 속성 펼치기</b></summary>
 <div markdown="1">
-![개체정리1](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4c05e624-2adf-49f9-af47-c49b1cfc7e2b)
-![개체정리2](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/f911a902-f889-4110-a950-f0fd021bbd2f)
-![개체정리3](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/87131e84-5d79-4f56-a84e-32ec2b4a028c)
+![개체정리1](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4c05e624-2adf-49f9-af47-c49b1cfc7e2b)<br>
+![개체정리2](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/f911a902-f889-4110-a950-f0fd021bbd2f)<br>
+![개체정리3](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/87131e84-5d79-4f56-a84e-32ec2b4a028c)<br>
 </div>
 </details>
 
