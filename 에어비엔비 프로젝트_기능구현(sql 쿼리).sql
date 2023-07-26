@@ -2122,9 +2122,9 @@ END;
 
 EXEC up_refund('RS4');
 
---------------------------------------------------------------------------------
 
--- 환불 추가
+
+-- 환불하기
 
 --환불 SEQUENCE 생성
 CREATE SEQUENCE seq_refund
@@ -2269,14 +2269,13 @@ BEGIN
     WHERE res_code=:NEW.res_code;
 END;
 
---------------------------------------------------------------------------------
 
 --------------------------------------------------------
  5) 후기관리 
 --------------------------------------------------------
 
 
--- 후기관리 : 등록
+-- 후기 작성
 
 --후기 SEQUENCE 생성
 CREATE SEQUENCE seq_review
@@ -2363,7 +2362,7 @@ END;
 
 
 
--- 후기 관리 : 수정
+-- 후기 수정
 CREATE OR REPLACE PROCEDURE up_UDTreview
 (
     prev_code review.rev_code%TYPE
@@ -2406,7 +2405,7 @@ BEGIN
 END;
 
 
--- 후기관리 : 삭제 
+-- 후기 삭제 
 
 --트리거 (후기가 삭제되기전 예약테이블에 후기코드 null로 변경)
 CREATE OR REPLACE TRIGGER ut_DELreviewB
