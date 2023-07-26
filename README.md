@@ -169,7 +169,7 @@ pl/sql이란?
 <details>
 <summary><b> 요구사항문서 펼치기</b></summary>
 <div markdown="1">
-	
+
 <img width="625" alt="요구분석1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4199f32d-01ff-44a1-b1ad-e42fc912dd7c">
 <img width="622" alt="요구분석2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/fb136df1-4c2b-46fd-8b7f-10a32eec5f8f">
 <img width="360" alt="요구분석3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/e648d9eb-82b4-4262-b770-5d712d7458b8">
@@ -324,24 +324,28 @@ pl/sql이란?
 
 * **숙소 목록조회** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
 
-  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
-  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
+  - 익명 프로시저 'up_roomMainPage'의 매개변수로 '숙소 유형(rm_type)'을 전달받아 해당 숙소 유형으로 숙소사진, 숙소 이름, 숙소 위치, 1박당 요금을 조회(select)하는 cursor을 선언한다.
+  - 해당 커서에서 한 레코드씩 읽어와 해당 숙소 유형에 해당하는 숙소들을 형식에 맞춰 LOOP 반복문으로 출력하며 더 이상 조회된 레코드가 없을 때 종료한다. 
+  - 숙소 유형이 입력되지 않으면 예외를 발생시킨다. 
 
 * **숙소 상세조회** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
 
-  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
-  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
+  - 매개변수로 전달받은 '숙소 코드(rm_code,PK)'로 해당 숙소의 편의시설목록을 조회하는 up_facility를 선언해, 해당 숙소의 편의시설 카테고리, 편의시설 이름을 cursor를 사용해 반복문으로 출력한다. 
+  - 매개변수로 전달받은 '숙소 코드(rm_code,PK)'로해당 숙소의 이용규칙목록을 조회하는 up_ruleset를 선언해 게스트정원, 반려동물 동반여부, 체크인&체크아웃 시간을 cursor를 사용해 반복문으로 출력한다. 
+  - 매개변수로 전달받은 '숙소 코드(rm_code,PK)'로해당 숙소의 후기 목록을 조회하는 up_review를 선언하며 선언한 총 평점, 후기개수를 구하는 함수uf_reviewavg, uf_reviewcount를 호출하여 총평점, 후기개수를 출력한 후 후기 테이블의 칼럼인 청결도, 정확성, 의사소통, 위치, 체크인, 가격대비 만족도를 cursor를 사용해 반복문으로 출력한다. 
+  - 숙소 코드가 입력되지 않으면 예외를 발생시킨다. 
 
 * **회원가입** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/18b9b1124a69f585853726515a4a88d02aeb7b3b/tennis/src/tennis/TennisMain.java#L30-L64)
 
-  - 실행할 경기가 남자경기, 여자경기인지 입력받는다. 남자경기는 5세트, 여자경기는 3세트로 세트수가 설정된다.   
-  - 각 플레이어의 이름을 입력받은 후 세팅정보를 바탕으로 계수기 객체를 생성한다.
+  - 사용자 이름, 생년월일, 이메일, 전화번호, 지역을 매개변수로 입력받아 Member 테이블에 insert한다.   
+  - 전화번호를 길게 입력했을 경우 VALUE_ERROR  예외를 발생시킨다. 
 
 * **로그인** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
 
-  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
-  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
-
+  - 사용자는 전화번호 또는 이메일로 로그인 할 수 있다. 
+  - 매개변수로 전달받은 전화번호 또는 이메일로 Member 테이블에서 조회되는 레코드개수가 1이면 로그인 성공 
+  - 로그인 실패시 회원가입 안내 메세지를 출력한다.  
+  
   
 
 </br>
@@ -354,13 +358,17 @@ pl/sql이란?
 
 - **회원정보 수정** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/18b9b1124a69f585853726515a4a88d02aeb7b3b/tennis/src/tennis/TennisMain.java#L30-L64)
   
-  - 실행할 경기가 남자경기, 여자경기인지 입력받는다. 남자경기는 5세트, 여자경기는 3세트로 세트수가 설정된다.   
-  - 각 플레이어의 이름을 입력받은 후 세팅정보를 바탕으로 계수기 객체를 생성한다.
+  - 회원 기본정보인 멤버코드, 이름, 이메일, 전화번호, 주소, 계좌등을 매개변수(p-)로 전달받으며 자동으로 멤버코드를 제외한 다른 매개변수는 null을 허용한다.  
+  
+  - Member테이블의 칼럼들 각각을 v-형 변수로 선언하여 해당 멤버코드로 조회한 레코드의 칼럼값들을 각각의 변수들에 대입한다. 
+  
+  - NVL 함수를 사용해 수정 요청한 값은 입력한 값(p-)로, 요청하지 않은 값은 미리 조회한 기존의 데이터(v-)로 수정(update)한다 
+  
+    
   
 - **회원 탈퇴** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/08c639b660efbea0407afeea07b35e378ce73ed1/tennis/src/tennis/TennisMain.java#L66-L75)
 
-  - 1 또는 2로 랜덤하게 득점자를 도출하고, 생성한 계수기 객체에서 포인트를 올리는 pointWinner(), 득점 처리하는  scoreBoard(), 반영된 점수를 출력하는 dispScoreBoard()를 호출한다.
-  - 해당 과정을 경기가 끝날때까지 while문으로 반복한다. 
+  - 회원의 전화번호를 매개변수로 전달받아 해당 전화번호를 전화번호로 갖는 회원의 레코드를 삭제(delete)한다.
   
   
 
@@ -372,27 +380,49 @@ pl/sql이란?
 
 - **숙소 등록** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L57-L82)
 
-  - 득점자의 포인트를 올리고 이를 생성한 계수기 객체의 멤버변수(각 선수 포인트, 게임, 세트수)에 경기 규칙에 따라 반영한다. 
+  - 기본정보인 지역, 정책, 숙소유형, 공간특징, 숙소이름, 숙소설명, 최대인원수, 1박당 가격, 위치, 침실&침대&욕실개수를 매개변수로 전달받아 숙소 테이블(Room)에 삽입(insert)한다.
 
-  - 포인트 4점 획득시 1게임을, 6게임 획득시 1 Set를 획득한 것으로 필드를 초기화며 게임, 세트 획득시 포인트 및 게임 필드를 리셋한다. 
+  - 5장의 사진 경로를 매개변수로 전달받아 현재 가입하고 있는 숙소를 코드의 Max 값으로 조회해 해당 숙소코드(외래키)와 함께 각각의 사진 주소를 사진 테이블(photo)에 삽입(insert)한다.
 
-  - 설정된 세트수의 과반수 이상 획득 시 경기를 종료하고 승자를 결정한다. 
+  - 사진을 등록해 숙소가 등록되면 숙소 상태는 '운영정지'가 기본값으로 설정된다. 
 
     
 
 - **숙소 기본정보 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
 
-  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
-  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
-  
+  - 숙소명을 수정(update)할 수 있으며 입력된 숙소이름이 50자를 넘으면 VALUE_ERROR를 발생시킨다. 
+  - 숙소설명을 수정(update)할 수 있으며 입력된 숙소설명이 200자를 넘으면 VALUE_ERROR를 발생시킨다. 
+  - 매개변수 pupdown 로 '+'또는 '-'를 입력받아 + 또는 - 버튼을 누를때마다 즉각적으로 기존 게스트 수를 1명씩 증가/감소(update) 최대 게스트 수를 수정(update)할 수 있다.
+  - 숙소주소를 입력받아 수정(update)할 수 있다.
+  - 숙소유형 & 예약가능공간은 동시에 수정한 후 저장버튼을 누르면 db에 반영되는 형태이기 때문에 두개를 다 매개변수로 받아 NVL 함수를 사용해 변경 요청한 값맘ㄴ update하고 그렇지 않은 값은 기존의 데이터를 넣는다. 
+  -  침실&침대&욕실 각각 +,- 버튼으로 수를 조절한 후 저장버튼을 누르는 형식이기 때문에 각각 +,-값을 누른 횟수로 매개변수 pupdown를 선언하여 기존 침실&침대&욕실 개수에 더해준다. 
+  -  1박당 요금 수정: 수정하고자하는 1박당 요금을 입력받아 수정(update)을 한후, 전체 숙소의 평균가격과 비교해 입력값이 높으면 낮추라는 메세지를, 낮으면 높이라는 권고 메세지를 출력한다. 
+  -  환불정책 수정 : 환불정책을 엄격, 
+  - 사업자 등록번호 수정 : 사업자 등록번호를 입력받아 수정(update)할 수 있다.
+  - 체크인, 체크아웃 시간 수정 : 체크인, 체크아웃 시간를 입력받아 수정(update)할 수 있다. 그러나 입력된 체크아웃 시간이 1시~7시라면 v_cannot_reserve_exception 예외를 발생시킨다. 
+
   
 
 - **숙소 세부정보 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
 
-  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
-  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
-
+  - 편의시설 관리 : 편의시설 종류와 숙소코드를 매개변수로 받아 해당 편의시설 코드와  숙소 코드(외래키)로 편의시설 설정 테이블에 등록/ 삭제한다.
+  - 이용규칙 관리: 이용규칙 종류와 숙소코드를 매개변수로 받아 해당 이용규칙 코드와  숙소 코드(외래키)로 편의시설 설정 테이블에 등록/ 삭제한다.
+    * 이때 규칙코드(RU2)인 '반려동물 허용' 선택시 함께 입력받은 최대 허용 반려동물 수를 숙소 테이블에 update 한다.  
+    * 허용안하면 최대 허용 반려동물 수를 0으로 초기화하고 추가요금 테이블에서 동물 추가해서 받던 추가요금 규칙 레코드를 삭제한다. 
+  - 할인제도 관리 : 할인제도 종류와 그에 따른 할인율, 할인 적용 기준 (날짜), 그리고 숙소코드를 매개변수로 받아 해당 이용규칙 코드와  숙소 코드(외래키)로 편의시설 설정 테이블에 등록/ 수정/ 삭제한다.
+    * 설정한 할인 제도가 'DC1' 인경우 해당 날짜 기준을 7일로,  'DC2' 해당 날짜 기준을 30일로 자동 설정하며, 할인제도가  DC3 또는 DC4인데 dc_basis 값이 전달되지 않은경우 v_notnull 예외를 발생시킨다. 
+    * 만약 할인율을 0으로 설정하면 해당 할인제도는 할인 테이블에서 삭제한다. 
+  - 추가요금 관리  : 추가요금 종류와 그에 따른 추가금액, 추가요금 적용 기준 (며칠), 그리고 숙소코드를 매개변수로 받아 해당 이용규칙 코드와  숙소 코드(외래키)로 편의시설 설정 테이블에 등록/ 수정/ 삭제한다.
+    * 이용규칙 테이블에서 'RU2' 즉 반려동물 허용 규칙이 있는지 확인한 후 만약 반려동물에 대한 추가요금을 설정했는데 반려동물 허용 규칙이 없다면 해당 이용규칙을 이용규칙 테이블에 삽입(insert)한다. 
+    * 추가금액을 0으로 수정하면 자동으로 해당 추가요금제도는 삭제시킨다. 
   
+  
+  
+- **숙소 상태 수정 ** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
+
+  - 호스트는 숙소상태를 운영정지, 비활성화...등으로 수정할 수 있다. 
+  - 만약 숙소 상태가 이미 '비활성화' 라면 해당 숙소는 이미 조회할 수 없으므로 v_no_more_visible 예외를 발생시킨다.
+  - 숙소 상태를 비활성화하면 위시리스트, 예약, 이용규칙설정, 추요금 설정 테이블 등에서 해당 숙소 코드를 갖는 레코드를 삭제한 후, 예약 테이블에선 '예약 거절'로 예약 상태를 바꾼다. 
 
  
 
@@ -404,21 +434,33 @@ pl/sql이란?
 ![dispScoreBoard](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/5f83dcb4-2c7b-4d38-894b-7446e2d8dae0)
 
 - **위시리스트 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L57-L82)
-  - 득점자의 포인트를 올리고 이를 생성한 계수기 객체의 멤버변수(각 선수 포인트, 게임, 세트수)에 경기 규칙에 따라 반영한다. 
+  - 위시리스트 조회 : 회원코드로 해당 회원이 등록한 위시리스트 목록을 cursor를 활용해 조회한다. 숙소 사진, 위치, 타입, 숙소 이름 , 침대 개수를 
 
-  - 포인트 4점 획득시 1게임을, 6게임 획득시 1 Set를 획득한 것으로 필드를 초기화며 게임, 세트 획득시 포인트 및 게임 필드를 리셋한다. 
+  - 위시리스트 추가: 멤버코드와 숙소코드를 활용해 위시리스트 테이블에 삽입하며(insert), 이때 하나의 회원은 같은 숙소를 등록할 수 없게 하도록 트리거를 설정해준다. 
 
-  - 설정된 세트수의 과반수 이상 획득 시 경기를 종료하고 승자를 결정한다. 
+  - 위시리스트 삭제: 멤버코드와 숙소코드를 활용해 위시리스트 테이블에서 삭제한다(delete)
 
 
 - **예약 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
-  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
-  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
-
+  
+  - 예약 목록 조회 : 예약이 완료된 숙소의 목록을 체크인 체크아웃 시간 , 주소, 예약일, 호스트 정보와 함께 출력한다.
+  - 예약 상세 조회: 상세보기를 요청한 숙소의 기본정보와 게스트 수 , 예약 번호, 환불 정책 등 추가 세부적인 정보와 함께 출력한다. 
+  - 예약하기 
+    * 요금산정: 기본요금에거기에 박수를 곱해 할인율 계산 함수를 활용해 도출한 할인율을 적용해 거기에 추가금액 계산함수로 도출한 추가요금을 더해 최종 가격을 도출한다.
+    * 요금 및 기타 예약 정보를 예약 테이블에 삽입한 후 성공적으로 처리되면 예약 정보를 출력한다. 
+    * 예약은 예약이 없는 날에만 예약이 가능하며 총인원은 최대인원을 넘을수 없고 반려동물은 최대반려동물을 넘을 수 없도록 트리거를 설정해준다. 
+  - 예약 수정 :  예약 수정시 가장 최근에 update 된 할인율, 추가요금 제도 등을 반영해 다시 요금을 계산한다. 
+  - 예약 삭제 : 전달받은 예약코드로 예약 테이블에서 해당 레코드를 삭제하는데 만약 이미 결제가 되어 결제 테이블에 등록되어있따면 먼저 환불을 하라는 v_no_res_cancel 예외를 발생시킨다. 
+  
 - **결제 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
 
-  - 한 플레이어가 포인트 4점 획득했는데 1점차면 포인트 듀스가, 6게임 획득했는데 1 게임차면 게임 듀스가 발생한다.
-  - 그 즉시 별개의 듀스 포인트 필드와 while문을 사용해 듀스게임을 실행한다. 
+  - 결제 목록 조회: 해당 결제수단으로 결제한 결제 목록을 cursor를 활용해 예약코드, 숙소 이름, 결제자 이름, 결제 날짜, 카드번호, 만료 날짜, 우편번호, 결제 금액의 정보를 반복문으로 출력한다. 
+
+  - 결제하기: 결제 지역, 카드번호 , 만료 기한 등의 결제 수단 정보를 입력받아 결제 테이블에 insert한다. 이때 예약상태가 '예정된 여행'이 아니면 결제를 할 수 없도록 트리거를 설정해준다. 
+
+  - 결제 후에는 환불절차를 거쳐야 결제 및 예약 취소를 할 수 있기 때문에 결제 테이블에서 직접적으로 레코드를 삭제할 수 없도록 트리거를 설정해준다. 
+
+    
 
 - **환불 관리** :pushpin: [코드 확인](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/blob/2fb77b76e96d4afbde8e7204d4b52e4e98ddcbdb/tennis/src/tennis/ScoreCounter.java#L85-L136)
 

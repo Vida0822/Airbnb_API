@@ -26,6 +26,7 @@ BEGIN
             FETCH rinfo_cursor INTO vpath,vrm_name,vrm_loc,vprice,vrm_code;
             EXIT WHEN rinfo_cursor%NOTFOUND;
             vrm_avg:=uf_reviewavg(vrm_code);
+            
             --평점이 있는 경우에는 평점이 출력되고,없는 경우에는 평점이 출력되지 않는다.
             IF vrm_avg IS NOT NULL  THEN
                 DBMS_OUTPUT.PUT_LINE('사진 : '||vpath ||' / 숙소이름 : '||vrm_name
@@ -44,7 +45,6 @@ EXEC up_roomMainPage('해변바로앞');
 -----------------------
 2) 숙소 상세조회
 -----------------------
-
 -- 편의시설조회
 CREATE OR REPLACE PROCEDURE up_facility
 (
@@ -118,7 +118,7 @@ BEGIN
             END IF;
             DBMS_OUTPUT.PUT_LINE('반려동물 동반 '||vcanpet);
             DBMS_OUTPUT.PUT_LINE('체크인 가능 시간 : '||vci_time);
-            DBMS_OUTPUT.PUT_LINE('체크인 가능 시간 : '||vco_time);
+            DBMS_OUTPUT.PUT_LINE('체크아웃 가능 시간 : '||vco_time);
             DBMS_OUTPUT.PUT_LINE(vrule_type);  
         END LOOP;
     CLOSE rr_cursor;
@@ -126,54 +126,6 @@ END;
 
 EXEC up_ruleset('RM17');
 
-
---후기 조회
-
---숙소의 후기개수 구하는 함수 : uf_reviewcount(숙소코드)
-CREATE OR REPLACE FUNCTION uf_reviewcount
-(
-    prm_code reserve.rm_code%TYPE := NULL
-)
-RETURN NUMBER
-IS
-    vcount NUMBER;
-    rm_code_null EXCEPTION;
-BEGIN
-    IF prm_code IS NULL THEN
-        RAISE rm_code_null;
-    END IF;
-    SELECT COUNT(*) INTO vcount
-    FROM REVIEW r JOIN RESERVE s ON r.rev_code=s.rev_code
-    WHERE rm_code = prm_code;
-    
-    RETURN(vcount);
-EXCEPTION
-    WHEN rm_code_null   THEN
-        RAISE_APPLICATION_ERROR(-20071,'숙소코드를 입력해 주세요.');
-END;
-
---해당숙소의 후기총평점 구하는 함수 uf_reviewavg(숙소코드)
-CREATE OR REPLACE FUNCTION uf_reviewavg
-(
-    prm_code reserve.rm_code%TYPE := NULL
-)
-RETURN NUMBER
-IS
-    vavg NUMBER(3,2);
-    rm_code_null EXCEPTION;
-BEGIN
-    IF prm_code IS NULL THEN
-        RAISE rm_code_null;
-    END IF;
-    --평점 구하는 쿼리
-    SELECT ROUND((SUM(rev_clean)/COUNT(*)+SUM(rev_correct)/COUNT(*)+SUM(rev_contact)/COUNT(*)+SUM(rev_loc)/COUNT(*)+SUM(rev_ci)/COUNT(*)+SUM(rev_price)/COUNT(*))/6,2) INTO vavg
-    FROM REVIEW r JOIN RESERVE s ON r.rev_code=s.rev_code
-    WHERE rm_code = prm_code;
-    RETURN(vavg);
-EXCEPTION
-    WHEN rm_code_null   THEN
-        RAISE_APPLICATION_ERROR(-20081,'숙소코드를 입력해 주세요.');
-END;
 
 --후기목록 조회
 CREATE OR REPLACE PROCEDURE up_review
@@ -218,7 +170,7 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('★ '||vtotavg||' 후기 '||vrevcount||' 개');
     DBMS_OUTPUT.PUT_LINE('청결도 : '||vclean);
     DBMS_OUTPUT.PUT_LINE('정확성 : '||vcorrect);
-    DBMS_OUTPUT.PUT_LINE('의소소통 : '||vcontact);
+    DBMS_OUTPUT.PUT_LINE('의사소통 : '||vcontact);
     DBMS_OUTPUT.PUT_LINE('위치 : '||vloc);
     DBMS_OUTPUT.PUT_LINE('체크인 : '||vci);
     DBMS_OUTPUT.PUT_LINE('가격 대비 만족 : '||vprice);
@@ -241,6 +193,54 @@ EXCEPTION
 END;
 
 EXEC up_review('RM17');
+
+
+--1) 사용 프로시저: 후기개수
+CREATE OR REPLACE FUNCTION uf_reviewcount
+(
+    prm_code reserve.rm_code%TYPE := NULL
+)
+RETURN NUMBER
+IS
+    vcount NUMBER;
+    rm_code_null EXCEPTION;
+BEGIN
+    IF prm_code IS NULL THEN
+        RAISE rm_code_null;
+    END IF;
+    SELECT COUNT(*) INTO vcount
+    FROM REVIEW r JOIN RESERVE s ON r.rev_code=s.rev_code
+    WHERE rm_code = prm_code;
+    
+    RETURN(vcount);
+EXCEPTION
+    WHEN rm_code_null   THEN
+        RAISE_APPLICATION_ERROR(-20071,'숙소코드를 입력해 주세요.');
+END;
+
+--2) 사용 프로시저: 후기총평점
+CREATE OR REPLACE FUNCTION uf_reviewavg
+(
+    prm_code reserve.rm_code%TYPE := NULL
+)
+RETURN NUMBER
+IS
+    vavg NUMBER(3,2);
+    rm_code_null EXCEPTION;
+BEGIN
+    IF prm_code IS NULL THEN
+        RAISE rm_code_null;
+    END IF;
+    --평점 구하는 쿼리
+    SELECT ROUND((SUM(rev_clean)/COUNT(*)+SUM(rev_correct)/COUNT(*)+SUM(rev_contact)/COUNT(*)+SUM(rev_loc)/COUNT(*)+SUM(rev_ci)/COUNT(*)+SUM(rev_price)/COUNT(*))/6,2) INTO vavg
+    FROM REVIEW r JOIN RESERVE s ON r.rev_code=s.rev_code
+    WHERE rm_code = prm_code;
+    RETURN(vavg);
+EXCEPTION
+    WHEN rm_code_null   THEN
+        RAISE_APPLICATION_ERROR(-20081,'숙소코드를 입력해 주세요.');
+END;
+
 
 
 -----------------------
@@ -534,62 +534,7 @@ EXEC up_insPhoto ('C:\Class\WorkSpace\OracleClass\숙소이미지.바다.jpg','C:\Class
 SELECT *
 FROM photo;
 
--- 숙소상태 수정 
-CREATE OR REPLACE PROCEDURE up_updRoomStatus
-(
-    prm_code room.rm_code%TYPE,
-    prm_status room.rm_status%TYPE
-)
-IS
-    vrm_status room.rm_status%TYPE;
-    v_no_more_visible EXCEPTION ; 
-BEGIN
-    SELECT rm_status INTO vrm_status
-    FROM room
-    WHERE rm_code = prm_code;
 
-    IF vrm_status = '비활성화' THEN
-        RAISE v_no_more_visible;
-    ELSE 
-        UPDATE room
-        SET rm_status = prm_status
-        WHERE rm_code = prm_code;
-        
-        -- 운영중, 운영중지는 화면에 숙소 출력할 때 WHERE 조건절로 나오게, 안나오게
-    IF prm_status = '비활성화' THEN
-            --삭제
-        DELETE FROM WISHLIST WHERE rm_code = prm_code;
-        DELETE FROM REGISTER WHERE rm_code = prm_code;
-        DELETE FROM RULESET WHERE rm_code = prm_code;
-        DELETE FROM FACSET WHERE rm_code = prm_code;
-        DELETE FROM PHOTO WHERE rm_code = prm_code;
-        DELETE FROM DCSET WHERE rm_code = prm_code;
-        DELETE FROM FEESET WHERE rm_code = prm_code;
-            -- 예약 상태 변경
-            UPDATE reserve
-            SET res_status = '예약거절'
-            WHERE rm_code = prm_code;
-        END IF;
-    END IF;
-EXCEPTION
-    WHEN v_no_more_visible THEN 
-        RAISE_APPLICATION_ERROR(-20012, '이미 비활성화된 숙소입니다') ; 
-        ROLLBACK;
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('기타 오류 발생');
-        ROLLBACK;
-END;
-    
-[실행] 
-EXEC up_updRoomStatus( 'RM33', '운영정지' );
-
-SELECT rm_code, rm_status
-FROM room;
-
-SELECT *
-FROM wishlist;
-SELECT *
-FROM reserve;
 
 
 -----------------------
@@ -657,7 +602,7 @@ BEGIN
 EXCEPTION
     WHEN VALUE_ERROR THEN 
     RAISE_APPLICATION_ERROR(-20001, 'TOO LONG VALUE') ;
-    DBMS_OUTPUT.PUT_LINE('>숙소 이름은 50자 이하로 입력하세요.');
+    DBMS_OUTPUT.PUT_LINE('>숙소 설명은 200자 이하로 입력하세요.');
     
     WHEN OTHERS THEN
     RAISE_APPLICATION_ERROR(-22222, '해당 요청을 정상적으로 처리할 수 없습니다.');
@@ -1259,6 +1204,66 @@ SELECT *
 FROM feeset;                          
  
 
+-----------------------
+4) 숙소상태 수정 
+-----------------------
+
+CREATE OR REPLACE PROCEDURE up_updRoomStatus
+(
+    prm_code room.rm_code%TYPE,
+    prm_status room.rm_status%TYPE
+)
+IS
+    vrm_status room.rm_status%TYPE;
+    v_no_more_visible EXCEPTION ; 
+BEGIN
+    SELECT rm_status INTO vrm_status
+    FROM room
+    WHERE rm_code = prm_code;
+
+    IF vrm_status = '비활성화' THEN
+        RAISE v_no_more_visible;
+    ELSE 
+        UPDATE room
+        SET rm_status = prm_status
+        WHERE rm_code = prm_code;
+        
+        -- 운영중, 운영중지는 화면에 숙소 출력할 때 WHERE 조건절로 나오게, 안나오게
+    IF prm_status = '비활성화' THEN
+            --삭제
+        DELETE FROM WISHLIST WHERE rm_code = prm_code;
+        DELETE FROM REGISTER WHERE rm_code = prm_code;
+        DELETE FROM RULESET WHERE rm_code = prm_code;
+        DELETE FROM FACSET WHERE rm_code = prm_code;
+        DELETE FROM PHOTO WHERE rm_code = prm_code;
+        DELETE FROM DCSET WHERE rm_code = prm_code;
+        DELETE FROM FEESET WHERE rm_code = prm_code;
+            -- 예약 상태 변경
+            UPDATE reserve
+            SET res_status = '예약거절'
+            WHERE rm_code = prm_code;
+        END IF;
+    END IF;
+EXCEPTION
+    WHEN v_no_more_visible THEN 
+        RAISE_APPLICATION_ERROR(-20012, '이미 비활성화된 숙소입니다') ; 
+        ROLLBACK;
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('기타 오류 발생');
+        ROLLBACK;
+END;
+    
+[실행] 
+EXEC up_updRoomStatus( 'RM33', '운영정지' );
+
+SELECT rm_code, rm_status
+FROM room;
+
+SELECT *
+FROM wishlist;
+SELECT *
+FROM reserve;
+
 --------------------------------------------------------
     4. 액터 : 게스트
 --------------------------------------------------------
@@ -1386,7 +1391,7 @@ END;
 -----------------------
 2) 예약 관리  
 -----------------------
--- 예약 기본정보 조회
+-- 예약 목록 조회
 
 CREATE OR REPLACE PROCEDURE up_reserve
 (
@@ -1428,7 +1433,7 @@ END;
 EXEC UP_RESERVE('RS1');
 
 
---예약 세부정보 조회
+--예약 상세 조회
 CREATE OR REPLACE PROCEDURE up_detailreserve
 (
     pres_code reserve.res_code%TYPE
@@ -1463,57 +1468,6 @@ CREATE SEQUENCE seq_reserve
 START WITH 53
 NOCYCLE
 NOCACHE;
-
---트리거(예약은 예약이 없는 날에만 예약이 가능하며 총인원은 최대인원을 넘을수 없고 반려동물은 최대반려동물을 넘을 수 없다) 
-CREATE OR REPLACE TRIGGER ut_INSUDTreserveB
-BEFORE INSERT OR UPDATE ON reserve
-FOR EACH ROW
-DECLARE
-    CURSOR insreserve_cursor IS(
-                                SELECT ci_date,co_date
-                                FROM reserve
-                                WHERE res_status = '예정된 여행' AND rm_code = :NEW.rm_code
-                                );
-    date_exception EXCEPTION;
-    all_human_exception EXCEPTION;
-    all_pet_exception EXCEPTION;
-    vci_date reserve.ci_date%TYPE;
-    vco_date reserve.co_date%TYPE;
-    vci reserve.co_date%TYPE;
-    vco reserve.co_date%TYPE;
-    vmaxguest room.maxguest%TYPE;
-    vmaxpet room.maxpet%TYPE;
-    
-BEGIN
-    SELECT maxguest,maxpet INTO vmaxguest,vmaxpet
-    FROM room
-    WHERE rm_code = :NEW.rm_code; 
-    IF vmaxguest < (:NEW.adult + :NEW.child) THEN
-        RAISE all_human_exception;
-    ELSIF vmaxpet < :NEW.pet  THEN
-        RAISE all_pet_exception;
-    END IF;
-    --예약하려는 날짜에 중복날짜가 있는지 확인
-    OPEN insreserve_cursor;
-    LOOP
-        FETCH insreserve_cursor INTO vci_date,vco_date;
-        EXIT WHEN insreserve_cursor%NOTFOUND;
-        IF :NEW.ci_date BETWEEN vci_date AND vco_date-1 THEN
-            RAISE date_exception;
-        ELSIF :NEW.co_date BETWEEN vci_date-1 AND vco_date  THEN
-            RAISE date_exception;
-        END IF;
-    END LOOP;
-    CLOSE insreserve_cursor;
-EXCEPTION
-    WHEN date_exception   THEN
-        RAISE_APPLICATION_ERROR(-20121,'해당날짜에 이미 예약이 있습니다.');
-    WHEN all_human_exception   THEN
-        RAISE_APPLICATION_ERROR(-20122,'인원이 최대수용인원을 초과했습니다.');
-    WHEN all_pet_exception   THEN
-        RAISE_APPLICATION_ERROR(-20123,'반려동물이 최대수용반려동물을 초과했습니다.');
-END;
-
 
 
 -- 예약 등록 
@@ -1807,6 +1761,60 @@ BEGIN
 
 -- EXCEPTION
 END;
+
+
+--트리거(예약은 예약이 없는 날에만 예약이 가능하며 총인원은 최대인원을 넘을수 없고 반려동물은 최대반려동물을 넘을 수 없다) 
+CREATE OR REPLACE TRIGGER ut_INSUDTreserveB
+BEFORE INSERT OR UPDATE ON reserve
+FOR EACH ROW
+DECLARE
+    CURSOR insreserve_cursor IS(
+                                SELECT ci_date,co_date
+                                FROM reserve
+                                WHERE res_status = '예정된 여행' AND rm_code = :NEW.rm_code
+                                );
+    date_exception EXCEPTION;
+    all_human_exception EXCEPTION;
+    all_pet_exception EXCEPTION;
+    vci_date reserve.ci_date%TYPE;
+    vco_date reserve.co_date%TYPE;
+    vci reserve.co_date%TYPE;
+    vco reserve.co_date%TYPE;
+    vmaxguest room.maxguest%TYPE;
+    vmaxpet room.maxpet%TYPE;
+    
+BEGIN
+    SELECT maxguest,maxpet INTO vmaxguest,vmaxpet
+    FROM room
+    WHERE rm_code = :NEW.rm_code; 
+    IF vmaxguest < (:NEW.adult + :NEW.child) THEN
+        RAISE all_human_exception;
+    ELSIF vmaxpet < :NEW.pet  THEN
+        RAISE all_pet_exception;
+    END IF;
+    --예약하려는 날짜에 중복날짜가 있는지 확인
+    OPEN insreserve_cursor;
+    LOOP
+        FETCH insreserve_cursor INTO vci_date,vco_date;
+        EXIT WHEN insreserve_cursor%NOTFOUND;
+        IF :NEW.ci_date BETWEEN vci_date AND vco_date-1 THEN
+            RAISE date_exception;
+        ELSIF :NEW.co_date BETWEEN vci_date-1 AND vco_date  THEN
+            RAISE date_exception;
+        END IF;
+    END LOOP;
+    CLOSE insreserve_cursor;
+EXCEPTION
+    WHEN date_exception   THEN
+        RAISE_APPLICATION_ERROR(-20121,'해당날짜에 이미 예약이 있습니다.');
+    WHEN all_human_exception   THEN
+        RAISE_APPLICATION_ERROR(-20122,'인원이 최대수용인원을 초과했습니다.');
+    WHEN all_pet_exception   THEN
+        RAISE_APPLICATION_ERROR(-20123,'반려동물이 최대수용반려동물을 초과했습니다.');
+END;
+
+
+
 --------------------------------------------------------------------------------
 
 
@@ -1935,6 +1943,51 @@ END;
 3) 결제 관리 
 -----------------------
 
+
+
+--결제 목록 조회
+CREATE OR REPLACE PROCEDURE up_pay
+(
+    ppay_code pay.res_code%TYPE
+)
+IS
+    vres_code reserve.res_code%TYPE;
+    vrm_name room.rm_name%TYPE;
+    vmem_name member.mem_name%TYPE;
+    vpay_date pay.pay_date%TYPE;
+    vcardnum VARCHAR2(30);
+    vexpiredate pay.expiredate%TYPE;
+    vpostcode pay.postcode%TYPE;
+    vtot_cost reserve.tot_cost%TYPE;
+    CURSOR payinfo_cursor IS(
+                                SELECT r.res_code,rm_name,mem_name,pay_date,RPAD(SUBSTR(cardnum,1,6),LENGTH(cardnum)+1,'*'),expiredate,postcode,tot_cost
+                                FROM pay p JOIN member m ON p.mem_code = m.mem_code
+                                            JOIN reserve r ON p.res_code = r.res_code
+                                            JOIN room o ON r.rm_code=o.rm_code
+                                WHERE pay_code = ppay_code
+                                );
+BEGIN
+    OPEN payinfo_cursor;
+    LOOP
+        FETCH payinfo_cursor INTO vres_code,vrm_name,vmem_name,vpay_date,vcardnum,vexpiredate,vpostcode,vtot_cost;
+        EXIT WHEN payinfo_cursor%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('예약 코드 : '||vres_code);
+        DBMS_OUTPUT.PUT_LINE('숙소 이름 : '||vrm_name);
+        DBMS_OUTPUT.PUT_LINE('결제자 이름 : '||vmem_name);
+        DBMS_OUTPUT.PUT_LINE('결제 날짜 : '||vpay_date);
+        DBMS_OUTPUT.PUT_LINE('카드번호 : '||vcardnum);
+        DBMS_OUTPUT.PUT_LINE('만료 날짜 : '||vexpiredate);
+        DBMS_OUTPUT.PUT_LINE('우편 번호 : '||vpostcode);
+        DBMS_OUTPUT.PUT_LINE('결제 금액 : '||vtot_cost);
+        DBMS_OUTPUT.PUT_LINE('--------------------------------------------');
+    END LOOP;
+    CLOSE payinfo_cursor;
+END;
+
+EXEC up_pay('PA1');
+
+
+
 -- 결제 추가 
 --결제 SEQUENCE 생성
 CREATE SEQUENCE seq_pay
@@ -1942,7 +1995,31 @@ START WITH 21
 NOCYCLE
 NOCACHE;
 
---트리거 (예약상태가 '예정된 여행'이 아니면 결제를 할 수 있다)
+--추가
+CREATE OR REPLACE PROCEDURE up_INSpay
+(
+    ppay_country pay.pay_country%TYPE :=NULL
+    ,pcardnum pay.cardnum%TYPE :=NULL
+    ,pexpiredate pay.expiredate%TYPE :=NULL
+    ,pcvc pay.cvc%TYPE :=NULL
+    ,ppostcode pay.postcode%TYPE :=NULL
+    ,pres_code pay.res_code%TYPE :=NULL
+    ,pmem_code pay.mem_code%TYPE :=NULL
+)
+IS
+    vpay_country pay.pay_country%TYPE;
+BEGIN
+    vpay_country := NVL(ppay_country,'한국');
+    INSERT INTO pay
+    VALUES('PA'||seq_pay.NEXTVAL,ppay_country,SYSDATE,pcardnum,pexpiredate,pcvc,ppostcode,pres_code,pmem_code);
+    COMMIT;
+END;
+
+select *
+from pay;
+
+
+--트리거 (예약상태가 '예정된 여행'이 아니면 결제를 할 수 없다)
 CREATE OR REPLACE TRIGGER ut_INSUDTpayB
 BEFORE INSERT OR UPDATE ON pay
 FOR EACH ROW
@@ -1983,71 +2060,6 @@ EXCEPTION
     WHEN vcant_cancel_exception   THEN
         RAISE_APPLICATION_ERROR(-20041,'결제 취소는 환불을 이용해 주세요.');
 END;
-
---추가
-CREATE OR REPLACE PROCEDURE up_INSpay
-(
-    ppay_country pay.pay_country%TYPE :=NULL
-    ,pcardnum pay.cardnum%TYPE :=NULL
-    ,pexpiredate pay.expiredate%TYPE :=NULL
-    ,pcvc pay.cvc%TYPE :=NULL
-    ,ppostcode pay.postcode%TYPE :=NULL
-    ,pres_code pay.res_code%TYPE :=NULL
-    ,pmem_code pay.mem_code%TYPE :=NULL
-)
-IS
-    vpay_country pay.pay_country%TYPE;
-BEGIN
-    vpay_country := NVL(ppay_country,'한국');
-    INSERT INTO pay
-    VALUES('PA'||seq_pay.NEXTVAL,ppay_country,SYSDATE,pcardnum,pexpiredate,pcvc,ppostcode,pres_code,pmem_code);
-    COMMIT;
-END;
-
-select *
-from pay;
-
-
---결제 정보 조회
-CREATE OR REPLACE PROCEDURE up_pay
-(
-    ppay_code pay.res_code%TYPE
-)
-IS
-    vres_code reserve.res_code%TYPE;
-    vrm_name room.rm_name%TYPE;
-    vmem_name member.mem_name%TYPE;
-    vpay_date pay.pay_date%TYPE;
-    vcardnum VARCHAR2(30);
-    vexpiredate pay.expiredate%TYPE;
-    vpostcode pay.postcode%TYPE;
-    vtot_cost reserve.tot_cost%TYPE;
-    CURSOR payinfo_cursor IS(
-                                SELECT r.res_code,rm_name,mem_name,pay_date,RPAD(SUBSTR(cardnum,1,6),LENGTH(cardnum)+1,'*'),expiredate,postcode,tot_cost
-                                FROM pay p JOIN member m ON p.mem_code = m.mem_code
-                                            JOIN reserve r ON p.res_code = r.res_code
-                                            JOIN room o ON r.rm_code=o.rm_code
-                                WHERE pay_code = ppay_code
-                                );
-BEGIN
-    OPEN payinfo_cursor;
-    LOOP
-        FETCH payinfo_cursor INTO vres_code,vrm_name,vmem_name,vpay_date,vcardnum,vexpiredate,vpostcode,vtot_cost;
-        EXIT WHEN payinfo_cursor%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('예약 코드 : '||vres_code);
-        DBMS_OUTPUT.PUT_LINE('숙소 이름 : '||vrm_name);
-        DBMS_OUTPUT.PUT_LINE('결제자 이름 : '||vmem_name);
-        DBMS_OUTPUT.PUT_LINE('결제 날짜 : '||vpay_date);
-        DBMS_OUTPUT.PUT_LINE('카드번호 : '||vcardnum);
-        DBMS_OUTPUT.PUT_LINE('만료 날짜 : '||vexpiredate);
-        DBMS_OUTPUT.PUT_LINE('우편 번호 : '||vpostcode);
-        DBMS_OUTPUT.PUT_LINE('결제 금액 : '||vtot_cost);
-        DBMS_OUTPUT.PUT_LINE('--------------------------------------------');
-    END LOOP;
-    CLOSE payinfo_cursor;
-END;
-
-EXEC up_pay('PA1');
 
 
 -----------------------
@@ -2260,11 +2272,9 @@ END;
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------
-    2. 예약 관리 
+ 5) 후기관리 
 --------------------------------------------------------
 
-
---5) 후기관리 
 
 -- 후기관리 : 등록
 
