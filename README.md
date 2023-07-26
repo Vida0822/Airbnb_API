@@ -171,18 +171,18 @@ pl/sql이란?
 <div markdown="1">
 
 <img width="625" alt="요구분석1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4199f32d-01ff-44a1-b1ad-e42fc912dd7c">
-<img width="622" alt="요구분석2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/fb136df1-4c2b-46fd-8b7f-10a32eec5f8f">
-<img width="360" alt="요구분석3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/e648d9eb-82b4-4262-b770-5d712d7458b8">
-<img width="357" alt="요구분석4" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4e2428f0-a9c5-4773-814a-6e581b142df5">
-<img width="355" alt="요구분석5" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/306c2004-5c89-470d-a111-c6cc6ae933a9">
-<img width="359" alt="요구분석6" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/91c88ad9-2c0b-496e-8fa8-c82758836624">
-<img width="356" alt="요구분석7" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/5922653f-048c-4ea8-aa10-01e57dab9626">
-<img width="358" alt="요구분석8" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/863153b3-aba8-451d-9f9c-9ace24e17289">
-<img width="355" alt="요구분석9" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4cb59dba-659b-4d31-81ee-6951e13001bb">
-<img width="356" alt="요구분석10" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/8bc11931-e3ee-4ac9-8428-954b2d38046a">
-<img width="358" alt="요구분석11" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/6ad4876a-769c-4a45-bb83-3792ea2d2f40">
-<img width="356" alt="요구분석12" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/bc013c4b-782e-4dca-8ca2-e7765d019a4b">
-<img width="354" alt="요구분석13" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/53183c9c-47b8-41ae-860d-9305a2c6f094">
+<img width="625" alt="요구분석2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/fb136df1-4c2b-46fd-8b7f-10a32eec5f8f">
+<img width="625" alt="요구분석3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/e648d9eb-82b4-4262-b770-5d712d7458b8">
+<img width="625" alt="요구분석4" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4e2428f0-a9c5-4773-814a-6e581b142df5">
+<img width="625" alt="요구분석5" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/306c2004-5c89-470d-a111-c6cc6ae933a9">
+<img width="625" alt="요구분석6" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/91c88ad9-2c0b-496e-8fa8-c82758836624">
+<img width="625" alt="요구분석7" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/5922653f-048c-4ea8-aa10-01e57dab9626">
+<img width="625" alt="요구분석8" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/863153b3-aba8-451d-9f9c-9ace24e17289">
+<img width="625" alt="요구분석9" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4cb59dba-659b-4d31-81ee-6951e13001bb">
+<img width="625" alt="요구분석10" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/8bc11931-e3ee-4ac9-8428-954b2d38046a">
+<img width="625" alt="요구분석11" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/6ad4876a-769c-4a45-bb83-3792ea2d2f40">
+<img width="625" alt="요구분석12" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/bc013c4b-782e-4dca-8ca2-e7765d019a4b">
+<img width="625" alt="요구분석13" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/53183c9c-47b8-41ae-860d-9305a2c6f094">
 
 </div>
 </details>
@@ -237,9 +237,9 @@ pl/sql이란?
 <details>
 <summary><b>개체 및 속성 펼치기</b></summary>
 <div markdown="1">
-<img width="344" alt="개체정리1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/3b487bb8-6578-4893-a69e-6dd0eb424b88">
-<img width="347" alt="개체정리2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/55ba9768-a04f-4f93-b270-05be7164b6eb">
-<img width="346" alt="개체정리3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/90a26990-7e10-42d8-ad5f-1dcdb2a1db9e">
+<img width="625" alt="개체정리1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/3b487bb8-6578-4893-a69e-6dd0eb424b88">
+<img width="625" alt="개체정리2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/55ba9768-a04f-4f93-b270-05be7164b6eb">
+<img width="625" alt="개체정리3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/90a26990-7e10-42d8-ad5f-1dcdb2a1db9e">
 </div>
 </details>
 
