@@ -234,14 +234,10 @@ pl/sql이란?
 
 ### 5.1. 개체 및 속성 정리 
 
-<details>
-<summary><b>개체 및 속성 펼치기</b></summary>
-<div markdown="1">
+
 <img width="625" alt="개체정리1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/3b487bb8-6578-4893-a69e-6dd0eb424b88">
 <img width="625" alt="개체정리2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/55ba9768-a04f-4f93-b270-05be7164b6eb">
 <img width="625" alt="개체정리3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/90a26990-7e10-42d8-ad5f-1dcdb2a1db9e">
-</div>
-</details>
 
 </br>
 
