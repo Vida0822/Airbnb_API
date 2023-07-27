@@ -248,9 +248,7 @@
 ## 7. 핵심 기능 (Use-case Diagram)
 
 
-
-
-![use-diagram](D:\Programming\images\README\use-diagram.jpg)
+![use-diagram](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/35208397-a982-4d9a-aaf2-9b9f3cfe20de)
 
 * **고객**(Actor) : 사이트 처음 방문한 사람이 숙소를 조회하고 회원가입/ 로그인하기까지의 프로세스 <br>
 
