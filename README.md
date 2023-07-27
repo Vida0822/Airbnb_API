@@ -267,7 +267,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.1. 액터 : 사용자
 
-![사용자](D:\Programming\images\README\사용자.jpg)
+![사용자](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/895bc98f-05d6-4ec3-942d-1cbb679c2cb3)
 
 * **숙소 목록조회** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L5)
 
@@ -307,7 +307,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.2. 액터 : 회원
 
-![회원](D:\Programming\images\README\회원.png)
+![회원](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/8924bf17-7e13-48ea-a857-c02cfcbae70a)
 
 - **회원정보 수정** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L345)
   
@@ -329,7 +329,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.3. 액터 : 호스트
 
-![호스트](D:\Programming\images\README\호스트.jpg)
+![호스트](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/24f91d72-0977-4e24-bd67-9a5285024773)
 
 - **숙소 등록** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L436)
 
@@ -341,7 +341,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
     
 
-- #### 숙소 기본정보 관리 :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L542)
+- **숙소 기본정보 관리** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L542)
 
   - **숙소명 수정** : 입력된 숙소이름이 50자를 넘으면 VALUE_ERROR를 발생시킨다.
     
@@ -398,7 +398,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.4. 액터 : 게스트
 
-![게스트](D:\Programming\images\README\게스트.jpg)
+![게스트](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/90b512b2-e96b-4264-a0ba-65946ec1b86a)
 
 - **위시리스트 관리** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L1273)
   
