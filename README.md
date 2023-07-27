@@ -56,10 +56,10 @@
 
 3. CRUD 기능구현  <br> </br>
 
-   
+  </br>
 
 <details>
-<summary><b> 개발단계 3 steps 상세</b></summary>
+<summary><b> 개발단계 상세</b></summary>
 <div markdown="1">
 
 **1st step : [요구분석]** <br>
@@ -160,7 +160,7 @@
 ## 5. 요구분석  
 
 ​	첫 단계로, 다같이 사이트를 분석하며 전체적인 흐름을 파악해 액터를 도출한 후, 각 액터별&기능별 상세기능과 화면구성을 파악하여 최종적인 요구분석 취합본을 작성하였다.
-
+  </br>
 <details>
 <summary><b> 요구사항문서 펼치기</b></summary>
 <div markdown="1">
@@ -185,7 +185,7 @@
 
 
 ## 6. DB 모델링 : ERD / EXERD 설계
-
+  </br>
 <details>
 <summary><b> 모델링 펼치기 </b></summary>
 <div markdown="1">
@@ -258,7 +258,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 * **게스트**(Actor) : 숙소를 예약하고 여행을 다녀온 후 후기까지 남기는 프로세스 <br>
 
-
+  </br>
 
 <details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
