@@ -269,7 +269,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ![핵심기능](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/76f2e20b-0c59-4eeb-914e-828974d0aaac)
 
-* #### 숙소 목록조회 :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L5)
+* **숙소 목록조회** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L5)
 
   - 숙소유형으로 검색한 숙소들의 사진, 이름, 위치, 1박당 요금을 조회한 결과를 담을 cursor을 선언한다.
 
@@ -336,9 +336,9 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 - **숙소 등록** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L436)
 
-  - 숙소 기본정보인 지역, 정책, 숙소유형, 공간특징, 이름, 설명, 최대인원수, 1박당 가격, 위치, 침실&침대&욕실개수를 입력 받아 숙소 테이블(Room)에 삽입(insert)한다.
+  - **숙소 기본정보 작성** : 위치, 정책, 숙소유형, 공간특징, 이름, 설명, 최대인원수, 1박당 가격, 위치, 침실&침대&욕실개수를 입력 받아 숙소 테이블(Room)에 삽입(insert)한다.
 
-  - 5장의 사진 경로를 매개변수로 받아 현재 가입하고 있는 숙소의 코드를 외래키로 사진 테이블(photo)에 삽입(insert)한다.
+  - **사진 등록**: 5장의 사진 경로를 매개변수로 받아 현재 가입하고 있는 숙소의 코드를 외래키로 사진 테이블(photo)에 삽입(insert)한다.
 
   - 사진을 등록하면 숙소가 등록되며 숙소 상태는 '운영 정지'가 기본값으로 설정된다. 
 
@@ -346,9 +346,9 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 - **숙소 기본정보 관리** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L542)
 
-  - 숙소명 수정 : 입력된 숙소이름이 50자를 넘으면 VALUE_ERROR를 발생시킨다. 
-  - 설명 수정 : 입력된 숙소설명이 200자를 넘으면 VALUE_ERROR를 발생시킨다. 
-  - 게스트 수 수정 : 버튼 종류(+ 또는 -)를 매개변수로 받아 버튼을 누를때마다 즉각적으로 기존 게스트 수를 1명씩 증가/감소시킨다.
+  - **숙소명 수정** : 입력된 숙소이름이 50자를 넘으면 VALUE_ERROR를 발생시킨다. 
+  - **설명 수정** : 입력된 숙소설명이 200자를 넘으면 VALUE_ERROR를 발생시킨다. 
+  - **게스트 수 수정** : 버튼 종류(+ 또는 -)를 매개변수로 받아 버튼을 누를때마다 즉각적으로 기존 게스트 수를 1명씩 증가/감소시킨다.
   - 주소 수정 : 주소를 입력받아 수정한다. 
   - 숙소유형 & 예약가능공간 수정 : 한 화면에서 동시에 수정하기 때문에 두 정보를 같이 매개변수로 받아 NVL 함수를 사용해 수정 요청한 값만 수정한다. 
   - 침실&침대&욕실 수 수정 : +,- 버튼으로 각각 수를 조절한 후 동시에 수정하기 때문에 버튼 클릭 횟수를 매개변수로 각각 받아 기존 값에 더해준다. 
