@@ -267,7 +267,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.1. 액터 : 사용자
 
-![핵심기능](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/76f2e20b-0c59-4eeb-914e-828974d0aaac)
+![사용자](D:\Programming\images\README\사용자.jpg)
 
 * **숙소 목록조회** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L5)
 
@@ -290,7 +290,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 * **회원가입** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L247)
 
   - 사용자의 이름, 생년월일, 이메일, 전화번호, 지역을 입력받아 회원 테이블에 삽입한다.
-      
+    
   - 전화번호를 길게 입력했을 경우 VALUE_ERROR  예외를 발생시킨다. 
 
 * **로그인** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L282)
@@ -307,9 +307,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.2. 액터 : 회원
 
-![TennisMain](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/c1eac4bc-5e04-463a-b47c-f44d5680cfed)
-
-
+![회원](D:\Programming\images\README\회원.png)
 
 - **회원정보 수정** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L345)
   
@@ -331,7 +329,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.3. 액터 : 호스트
 
-![scoreBoard](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/7410cb17-8dad-4a06-8fbb-d95e875b0611)
+![호스트](D:\Programming\images\README\호스트.jpg)
 
 - **숙소 등록** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L436)
 
@@ -354,7 +352,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
   - **주소 수정** : 주소를 입력받아 수정한다.
     
   - **숙소유형 & 예약가능공간 수정** : 한 화면에서 동시에 수정하므로 같이 매개변수로 받아 NVL 함수를 사용해 수정 요청한 값만 수정한다.
-     
+    
   - **침실&침대&욕실 수 수정** : +,- 버튼으로 각각 수를 조절한 후 동시에 수정하므로 버튼 클릭 횟수를 매개변수로 받아 기존 값에 더해준다.
     
   - **1박당 요금 수정** : 다른 숙소의 평균가격과 비교해 입력값이 높으면 낮추라는, 낮으면 높이라는 권고 메세지를 출력한다.
@@ -374,11 +372,11 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
   - **이용규칙 관리**: 이용규칙 종류와 숙소 조합을 이용규칙 설정 테이블에 등록/삭제한다.
     * '반려동물 허용' 규칙 설정 시 최대 반려동물 수를 추가적으로 입력받아 숙소 테이블에 반영한다.  
     * '반려동물 허용' 규칙 해제 시 숙소 테이블의 최대 반려동물 수를 0으로 초기화하고 추가요금설정 테이블에 설정해준 반려동물 추가 요금 정보를 삭제한다.
-      
+    
   - **할인제도 관리** : 할인제도 종류와 그에 따른 할인율, 할인적용기준 (일수)를 할인설정 테이블에 등록/수정/삭제한다.
     * 설정한 할인 제도가 ''주간할인' 인경우 7일로,  '월간할인'이면 30일로  할인 적용기준을 자동 설정한다. 
     * 할인율을 0으로 설정하면 해당 할인제도는 할인설정 테이블에서 삭제한다.
-      
+    
   - **추가요금 관리**  : 추가요금 종류와 그에 따른 추가금액, 추가요금 적용 기준(일수)를 추가요금 설정 테이블에 등록/ 수정/ 삭제한다.
     * 반려동물 추가요금 설정 시 이용규칙설정 테이블에 반려동물 허용 규칙을 자동으로 설정한다. 
     * 추가금액을 0으로 수정하면 해당 추가요금제도는 삭제한다. 
@@ -400,16 +398,14 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.4. 액터 : 게스트
 
-![dispScoreBoard](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/5f83dcb4-2c7b-4d38-894b-7446e2d8dae0)
-
-
+![게스트](D:\Programming\images\README\게스트.jpg)
 
 - **위시리스트 관리** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L1273)
   
   - **위시리스트 조회** : 회원이 위시리스트로 등록한 숙소의 사진, 위치, 타입, 숙소 이름 , 침대개수를 목록으로 출력한다.
     
   - **위시리스트 추가** : 회원과 숙소 조합을 위시리스트 테이블에 삽입하며, 같은 숙소를 두번 추가할 수 없도록 트리거를 설정해준다.
-     
+    
   - **위시리스트 삭제** : 회원코드와 숙소코드로 조회한 레코드를 삭제(delete)한다. 
 
 
@@ -422,7 +418,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
   - **예약하기** 
     * 기본요금에 예약 일수, 할인율, 추가요금을 반영해 최종 요금을 도출한다.
     * 예약이 없는 날에만 예약이 가능하며 총인원은 최대인원을 넘을수 없고 반려동물은 최대반려동물을 넘을 수 없도록 트리거를 설정해준다.
-      
+    
   - **예약 수정** :  예약 수정시 가장 최근에 update 된 할인율, 추가요금 제도 등을 반영해 다시 요금을 계산한다.
     
   - **예약 삭제** : 예약코드로 예약 테이블에서 해당 레코드를 삭제하되 이미 결제가 되었다면 환불 신청을 하도록 v_no_res_cancel 예외를 발생시킨다. 
@@ -454,7 +450,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
   - **후기 작성**
     * 후기 글과 함께 청결도, 정확성, 의사소통, 위치, 체크인, 가격대비만족도 각각의 항목에 별점을 매긴다.
     * 후기는 완료된 여행만, 그리고 한번만 작성하도록 트리거를 설정한다.
-      
+    
   - **후기 수정**: NVL 함수로 수정한 항목별 점수만 반영한다.
     
   - **후기 삭제**: 삭제되기 전 예약정보의 후기 작성여부를 null로 변경되도록 트리거를 설정한다.  
