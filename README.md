@@ -269,7 +269,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ![핵심기능](https://github.com/Vida0822/TennisCounter_Java-Interface-Project/assets/132312673/76f2e20b-0c59-4eeb-914e-828974d0aaac)
 
-* **숙소 목록조회** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L5)
+* #### 숙소 목록조회 :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L5)
 
   - 숙소유형으로 검색한 숙소들의 사진, 이름, 위치, 1박당 요금을 조회한 결과를 담을 cursor을 선언한다.
 
