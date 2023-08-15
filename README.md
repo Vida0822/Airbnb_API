@@ -170,20 +170,20 @@
 <details>
 <summary><b> 요구사항문서 펼치기</b></summary>
 <div markdown="1">
-<img width="625" alt="요구분석1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4199f32d-01ff-44a1-b1ad-e42fc912dd7c">
-<img width="625" alt="요구분석2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/fb136df1-4c2b-46fd-8b7f-10a32eec5f8f">
-<img width="625" alt="요구분석3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/e648d9eb-82b4-4262-b770-5d712d7458b8">
-<img width="625" alt="요구분석4" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4e2428f0-a9c5-4773-814a-6e581b142df5">
-<img width="625" alt="요구분석5" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/306c2004-5c89-470d-a111-c6cc6ae933a9">
-<img width="625" alt="요구분석6" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/91c88ad9-2c0b-496e-8fa8-c82758836624">
-<img width="625" alt="요구분석7" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/5922653f-048c-4ea8-aa10-01e57dab9626">
-<img width="625" alt="요구분석8" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/863153b3-aba8-451d-9f9c-9ace24e17289">
-<img width="625" alt="요구분석9" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/4cb59dba-659b-4d31-81ee-6951e13001bb">
-<img width="625" alt="요구분석10" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/8bc11931-e3ee-4ac9-8428-954b2d38046a">
-<img width="625" alt="요구분석11" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/6ad4876a-769c-4a45-bb83-3792ea2d2f40">
-<img width="625" alt="요구분석12" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/bc013c4b-782e-4dca-8ca2-e7765d019a4b">
-<img width="625" alt="요구분석13" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/53183c9c-47b8-41ae-860d-9305a2c6f094">
 
+<img width="625" alt="요구분석1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/7ce4c7a4-11ab-4cd0-9e24-3ef26ac0cad9">
+<img width="625" alt="요구분석2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/7fc6ed39-36c1-49fe-8512-f0c121e212d4">
+<img width="625" alt="요구분석3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/ddba2368-cd52-4140-9ee2-09bec1f2b5e1">
+<img width="625" alt="요구분석4" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/8f17723b-2267-4afd-925e-30cb95e1828a">
+<img width="625" alt="요구분석5" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/7152e14b-ca6a-4f50-8342-5a05b8f018a4">
+<img width="625" alt="요구분석6" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/cf7d8c7b-4aba-4195-9cd6-40143aaf93fa">
+<img width="625" alt="요구분석7" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/a4d50af6-b8e7-4244-9e33-1f189a06906a">
+<img width="625" alt="요구분석8" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/7014443d-38c0-4634-affc-0d194d85e6a9">
+<img width="625" alt="요구분석9" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/f9dc522b-672d-44e8-9ef2-1f3b498cf38b">
+<img width="625" alt="요구분석10" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/c23fd0c8-e7de-4b99-9d3c-fa05e06193b0">
+<img width="625" alt="요구분석11" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/c3bd9601-e989-492a-92c7-5b8eb1e0f73f">
+<img width="625" alt="요구분석12" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/b4e09434-c403-4709-97cd-7a3e8e79d068">
+<img width="625" alt="요구분석13" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/ab6c1aa6-6713-46a7-830d-7b97b90e530a">
 </div>
 </details>
 
@@ -198,10 +198,9 @@
 
 ### 6.1. 개체 및 속성 정리 
 
-<img width="625" alt="개체정리1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/3b487bb8-6578-4893-a69e-6dd0eb424b88">
-<img width="625" alt="개체정리2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/55ba9768-a04f-4f93-b270-05be7164b6eb">
-<img width="625" alt="개체정리3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/90a26990-7e10-42d8-ad5f-1dcdb2a1db9e">
-
+<img width="625" alt="개체정리1" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/ab2ea866-8aaa-4bc0-ab32-3c7985168b38">
+<img width="625" alt="개체정리2" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/5ae777ce-71af-4d36-b4d5-0917cbef8bf3">
+<img width="625" alt="개체정리3" src="https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/73417905-351b-4a81-874b-63f57bf13187">
 </br>
 
 
@@ -210,8 +209,7 @@
 
 ​	위와 같은 요구분석을 바탕으로, 우리는 개체 및 속성을 추출한후 개체간의 관계를 정의하는 개념적 모델링을 통해 erd를 설계했다. 개체와 속성을 필기?로 정리할 땐 테이블간 관계를 명확히 파악하기 위해 편의상 기본키 및 외래키를 PK,FK로 표시하며 모두 작성해주었고 erd는 설계 규칙에 따라 외래키를 생략하고 PK대신 밑줄로 기본키임을 나타냈다. 
 
-![에어비앤비_DB모델링_개념적모델링(erd)](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/98d5d17e-12c1-4607-b9c4-d28d2783b4a2)
-
+![에어비앤비_DB모델링_개념적모델링(erd)](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/a99c9792-ee25-489f-b1b7-57b70eb09d0e)
 
 
 
@@ -227,7 +225,8 @@
 
 - **사용 툴: eXERD**
 
-![eXERD](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/78875f7e-b042-4304-8b68-0eafcc9b614b)
+![eXERD](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/b322619c-f18f-4db5-ace4-94463f9eaeaa)
+
 
 ​	
 
@@ -254,7 +253,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 ## 7. 핵심 기능 (Use-case Diagram)
 
 
-![use-diagram](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/35208397-a982-4d9a-aaf2-9b9f3cfe20de)
+![use-diagram drawio](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/7688d931-8225-42bf-95c1-1d3fea64dccf)
 
 * **고객**(Actor) : 사이트 처음 방문한 사람이 숙소를 조회하고 회원가입/ 로그인하기까지의 프로세스 <br>
 
@@ -272,8 +271,8 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 
 ### 7.1. 액터 : 사용자
+![사용자](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/18eb3195-fef5-4250-ac2f-71539dee2dd9)
 
-![사용자](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/895bc98f-05d6-4ec3-942d-1cbb679c2cb3)
 
 * **숙소 목록조회** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L5)
 
@@ -313,7 +312,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.2. 액터 : 회원
 
-![회원](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/8924bf17-7e13-48ea-a857-c02cfcbae70a)
+![회원](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/b231a865-1c51-4e75-ab29-7c0e7dc5bb34)
 
 - **회원정보 수정** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L345)
   
@@ -335,7 +334,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.3. 액터 : 호스트
 
-![호스트](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/24f91d72-0977-4e24-bd67-9a5285024773)
+![호스트](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/03fc71b0-551e-4dd3-8eb0-0d3e9d5ca277)
 
 - **숙소 등록** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L436)
 
@@ -404,7 +403,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ### 7.4. 액터 : 게스트
 
-![게스트](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/90b512b2-e96b-4264-a0ba-65946ec1b86a)
+![게스트](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/1394b88c-1f47-438c-8843-8c2fbb48a9ba)
 
 - **위시리스트 관리** :pushpin: [코드 확인](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/blob/f055b7a6074bbe3304f6fae73ab042c884d2c78a/%EC%97%90%EC%96%B4%EB%B9%84%EC%97%94%EB%B9%84%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84(sql%20%EC%BF%BC%EB%A6%AC).sql#L1273)
   
