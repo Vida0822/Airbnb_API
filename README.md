@@ -192,6 +192,10 @@
 
 ## 6. DB 모델링 : ERD / EXERD 설계
   </br>
+
+  ![에어비앤비_DB모델링_개념적모델링(erd)](https://github.com/Vida0822/Airbnb_Oracle-PLSQL-Project/assets/132312673/a99c9792-ee25-489f-b1b7-57b70eb09d0e)
+
+  </br>
 <details>
 <summary><b> 모델링 펼치기 </b></summary>
 <div markdown="1">
