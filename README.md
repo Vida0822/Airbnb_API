@@ -503,7 +503,7 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ## 9. 발표 영상 (발표자: 본인)
 
-> 
+> 기입 예정
 
 
 
@@ -511,6 +511,6 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ## 10. 회고 / 느낀점
 
-> '좋은 팀'에 대한 고민 : https://vida0822.github.io/memory/MR_TennisMemory/		</br> 
+> 그땐 그게 최선의 방법이었어 : https://vida0822.github.io/memory/MR_airbnbMemory/		</br> 
 
-> 그래서, 그거 코딩할 수 있어? : https://vida0822.github.io/memory/MR_TennisMemory(2)/
+> 시너지 : https://vida0822.github.io/memory/MR_aribnbMemory-(2)/
