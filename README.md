@@ -514,6 +514,6 @@ eXERD로 설계한 데이터베이스에 실제 사이트의 데이터를 엑셀
 
 ## 10. 회고 / 느낀점
 
-> 그땐 그게 최선의 방법이었어 : https://vida0822.github.io/memory/MR_airbnbMemory/		</br> 
+> 그땐 그게 최선의 방법이었어 : https://vida0822.github.io/memory/MR_airbnbMemory(1)/		</br> 
 
-> 시너지 : https://vida0822.github.io/memory/MR_aribnbMemory-(2)/
+> 시너지 : https://vida0822.github.io/memory/MR_aribnbMemory(2)/
